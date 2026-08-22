@@ -149,3 +149,71 @@ skillCards.forEach((card) => {
     });
 
 });
+
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+
+const contactForm =
+    document.querySelector(".contact-form");
+
+if (contactForm) {
+
+    const submitButton =
+        contactForm.querySelector('button[type="submit"]');
+
+    const buttonLabel =
+        contactForm.querySelector(".button-label");
+
+    const formStatus =
+        contactForm.querySelector(".form-status");
+
+    contactForm.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        submitButton.disabled = true;
+        buttonLabel.textContent = "Sending...";
+        formStatus.textContent = "";
+        formStatus.className = "form-status";
+
+        try {
+
+            const formData =
+                new FormData(contactForm);
+
+            const response = await fetch(contactForm.action, {
+                method: "POST",
+                headers: {
+                    "Content-Type":
+                        "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams(formData).toString()
+            });
+
+            if (!response.ok) {
+                throw new Error("Form submission failed");
+            }
+
+            contactForm.reset();
+            formStatus.textContent =
+                "Thanks — your message has been sent successfully.";
+            formStatus.classList.add("is-success");
+
+        } catch (error) {
+
+            formStatus.innerHTML =
+                'The message could not be sent. Please email <a href="mailto:kc880303@gmail.com">kc880303@gmail.com</a> instead.';
+            formStatus.classList.add("is-error");
+
+        } finally {
+
+            submitButton.disabled = false;
+            buttonLabel.textContent = "Send Message";
+
+        }
+
+    });
+
+}

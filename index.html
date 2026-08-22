@@ -1441,6 +1441,7 @@
         <form
             name="portfolio-contact"
             method="POST"
+            action="/"
             data-netlify="true"
             netlify-honeypot="bot-field"
             class="contact-form"
@@ -1450,6 +1451,12 @@
                 type="hidden"
                 name="form-name"
                 value="portfolio-contact"
+            >
+
+            <input
+                type="hidden"
+                name="subject"
+                value="New portfolio message from %{formName}"
             >
 
             <p class="hidden-field">
@@ -1505,9 +1512,15 @@
                 type="submit"
                 class="button button-primary"
             >
-                Send Message
+                <span class="button-label">Send Message</span>
                 <span>↗</span>
             </button>
+
+            <p
+                class="form-status"
+                role="status"
+                aria-live="polite"
+            ></p>
 
         </form>
 
@@ -1534,7 +1547,9 @@
         </div>
 
         <p class="email-display">
-            kc880303@gmail.com
+            <a href="mailto:kc880303@gmail.com">
+                kc880303@gmail.com
+            </a>
         </p>
 
     </div>
