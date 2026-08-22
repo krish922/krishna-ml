@@ -2538,6 +2538,40 @@ footer {
     cursor: pointer;
 }
 
+.contact-form .button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+    transform: none;
+}
+
+.form-status {
+    min-height: 1.5rem;
+    margin-top: 16px;
+    color: var(--text);
+    font-size: 0.86rem;
+    line-height: 1.6;
+}
+
+.form-status:empty {
+    min-height: 0;
+    margin-top: 0;
+}
+
+.form-status.is-success {
+    color: #087f62;
+}
+
+.form-status.is-error,
+.form-status.is-error a {
+    color: #a33a22;
+}
+
+.email-display a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
 .hidden-field {
     display: none;
 }
@@ -2547,7 +2581,5 @@ footer {
     .contact-form {
         padding: 22px 18px;
     }
-
-}
 
 }
