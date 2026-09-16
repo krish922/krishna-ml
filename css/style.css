@@ -1351,6 +1351,24 @@ p {
 
 }
 
+.credential-link {
+
+    margin-top: 8px;
+
+    color: var(--primary);
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+}
+
+.credential-link:hover {
+
+    color: var(--accent);
+
+}
+
 
 /* =========================
    APPROACH
